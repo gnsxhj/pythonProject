@@ -579,15 +579,292 @@
 #        computer.print_space(g_num)
 
 # 质数判断
-num = int(input("请输入一个数字："))
+# num = int(input("请输入一个数字："))
+#
+# if num > 1:
+#     for i in range(2, num):
+#         if (num % i) == 0:
+#             print(num,"不是质数")
+#             print(i,"乘以",num//i,"是",num)
+#             break
+#     else:
+#         print(num,"是质数")
+# else:
+#     print(num, "既不是质数，也不是合数")
 
-if num > 1:
-    for i in range(2, num):
-        if (num % i) == 0:
-            print(num,"不是质数")
-            print(i,"乘以",num//i,"是",num)
-            break
-    else:
-        print(num,"是质数")
-else:
-    print(num,"不是质数")
+# import math
+#
+# num = int(input("请输入一个数字:"))
+# # 质数大于1
+# if num > 1:
+#     square_num = math.floor(num ** 0.5)
+#     for i in range(2, (square_num+1)):
+#         if (num % i) == 0:
+#             print(num, "是合数")
+#             print(i, "乘以", num//i, "是", num)
+#             break
+#     else:
+#         print(num, "是质数")
+# else:
+#     print(num, "既不是质数，也不是合数")
+
+# 输出指定范围的素数
+# import math
+#
+# lower = int(input("输入区间最小值: "))
+# upper = int(input("输入区间最大值: "))
+# print("素数结果如下：")
+# print("="*10)
+# pri_num = 0
+# com_num = 0
+# for num in range(lower, upper+1):
+#     if num > 1:
+#         square_num = math.floor(num ** 0.5)
+#         for i in range(2, (square_num + 1)):
+#             if (num % i) == 0:
+#                 com_num += 1
+#                 break
+#         else:
+#             pri_num += 1
+#             print(num)
+#     else:
+#         print(num, "既不是质数，也不是合数")
+# print("="*10)
+# print(com_num,"个合数")
+# print(pri_num,"个素数")
+
+# 定义一个判定素数的函数
+# def isprime(x):
+#     if x == 1:
+#         return False
+#     k = int(x**0.5)
+#     for j in range(2, k+1):
+#         if x % j == 0:
+#             return False
+#     return True
+# lower = int(input("输入区间最小值: "))
+# upper = int(input("输入区间最大值: "))
+# print("素数结果如下：")
+# for i in range(lower, upper):
+#     if isprime(i):
+#         # print(i, end = " ")
+#         print(i)
+
+# 阶乘
+# num = int(input("please input a number:"))
+# factorial = 1
+#
+# if num < 0:
+#     print("Sorry, negative numbers don't have factorials")
+# elif num == 0:
+#     print("the factorial of zero is 1.")
+# else:
+#     for i in range(1, num + 1):
+#         factorial = factorial * i
+#     # print("the factorial of %d is %d." %(num, factorial))
+#     print(f'the factorial of {num:d} is {factorial:d}.')
+#
+# 递归实现
+# def factorial(n):
+#     if n > 1:
+#         return n*factorial(n-1)
+#     return 1
+#
+# while True:
+#     try:
+#         n = input("please input a number(input q for quit):")
+#         if n == "q":
+#             break
+#         n = int(n)
+#         if n < 1:
+#             raise ValueError
+#         x = factorial(n)
+#         print(f'the factorial of {n:d} is {x:d}.')
+#     except ValueError:
+#         print("error input!")
+
+# 九九乘法
+# for i in range(1, 10):
+#     for j in range(1, i+1):
+##         print('{}x{}={}\t'.format(j, i, i*j), end='')
+#         print('{0}x{1}={2}\t'.format(j, i, i*j), end='')
+#     print()
+
+# class multiplicationTable():
+#     def paint(self,n=9):
+#         for row in range(1, n+1):
+#             for col in range(1, row+1):
+#                 print("{0}x{1}={2}\t".format(col, row, row*col), end='')
+#             print();
+# table = multiplicationTable()
+# table.paint(9)
+
+
+# 斐波拉契数列
+# nterms = int(input("你需要几项?"))
+# n1 = 0
+# n2 = 1
+# count = 2
+# if nterms <= 0:
+#     print("请输入一个正整数!")
+# elif nterms == 1:
+#     print("斐波拉契数列:")
+#     print(n1)
+# else:
+#     print("斐波拉契数列:")
+#     print(n1, ",", n2, end=" , ")
+#     while count < nterms:
+#         nth = n1 + n2
+#         print(nth, end=" , ")
+#         # n1 = n2
+#         # n2 = nth
+#         n1, n2 = n2, nth
+#         count += 1
+
+# L = [0, 1]
+# nterms = int(input("你需要几项?"))
+# if nterms <= 0:
+#     print("请输入一个正整数!")
+#
+# elif nterms <= 2:
+#     if nterms == 1:
+#         print("斐波拉契数列: 0")
+#     else:
+#         print("斐波拉契数列: 0 , 1")
+# else:
+#     for i in range(2, nterms):
+#         f = L[i-1] + L[i-2]
+#         L.append(f)
+#     print("斐波拉契数列:")
+#     print(L)
+
+# while True:
+#     try:
+#         nterms = int(input("你需要几项?"))
+#         if nterms <= 0:
+#             print("请输入一个正整数!")
+#         elif nterms == 1:
+#             print("斐波拉契数列: 0")
+#         else:
+#             i, j = 0 , 1
+#             f_list = [0 ,1]
+#             while nterms > 2:
+#                 i, j = j, i
+#                 j += i
+#                 f_list.append(j)
+#                 nterms -= 1
+#             print("斐波拉契数列:")
+#             print(f_list)
+#     except ValueError:
+#         print("输入错误，请重新输入！")
+
+# 阿姆斯特朗数
+# num = int(input("请输入一个数字: "))
+# sum = 0
+# n = len(str(num))
+#
+# temp = num
+# while temp > 0:
+#     digit = temp % 10
+#     sum += digit ** n
+#     temp //= 10
+#
+# if num == sum:
+#     print(num, "是阿姆斯特朗数")
+# else:
+#     print(num, "不是阿姆斯特朗数")
+
+# 获得指定区间内的阿姆斯特朗数
+# lower = int(input("最小值："))
+# upper = int(input("最大值："))
+#
+# for num in range(lower, upper+1):
+#     sum = 0
+#     n = len(str(num))
+#     temp = num
+#     while temp > 0:
+#         digit = temp % 10
+#         sum += digit ** n
+#         temp //= 10
+#     if num == sum:
+#         print(num)
+
+# 最大公约数算法
+# def hcf(x, y):
+#     if x > y:
+#         smaller = y
+#     else:
+#         smaller = x
+#     for i in range(1, smaller + 1):
+#         if x % i == 0 and y % i == 0:
+#             hcf = i
+#     return hcf
+# num1 = int(input("请输入第一个数字："))
+# num2 = int(input("请输入第二个数字："))
+# print(num1,"和",num2,"的最大公约数为:",hcf(num1,num2))
+
+# 最小公倍数
+# def lcm(x, y):
+#     if x > y:
+#         greater = x
+#     else:
+#         greater = y
+#
+#     while(True):
+#         if greater % x == 0 and greater % y == 0:
+#             lcm = greater
+#             break
+#         greater += 1
+#
+#     return lcm
+#
+# num1 = int(input("请输入第一个数字："))
+# num2 = int(input("请输入第二个数字："))
+# print(num1,"和",num2,"的最小公倍数为:",lcm(num1,num2))
+
+# def lcm(a, b):
+#     if b > a:
+#         a, b = b, a
+#     if a % b == 0:
+#         return a
+#     mul = 2
+#     while a*mul % b != 0:
+#         mul += 1
+#     lcm = a * mul
+#     return lcm
+# while(True):
+#     a = int(input("Input 'a': "))
+#     b = int(input("Input 'b': "))
+#     print(lcm(a, b))
+
+# 简单的计算器
+class oper:
+    oper = ""
+    func = ""
+    def __int__(self,oper):
+        self.oper=oper.strip()
+    def opers(self, num1, num2):
+        swicher = {
+            '+' : 'plus',
+            '-' : 'subtract',
+            '*' : 'multiply',
+            '/' : 'divide',
+        }
+        func = swicher.get(self.oper,'default')
+        if func == 'default':
+            print('wrong operation')
+            exit()
+        num1 = float(num1)
+        num2 = float(num2)
+        func = getattr(self, func)
+        return func(num1, num2)
+
+    def plus(self,num1,num2):
+        return num1 + num2
+    def subtract(self,num1,num2):
+        return num1 - num2
+    def multiply(self,num1,num2):
+        return num1 * num2
+    def divide(self,num1,num2):
+        return num1 / num2
+import re
