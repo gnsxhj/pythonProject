@@ -3,36 +3,36 @@
 # coding=utf-8
 
 # ***********************************************************************************************************
-import docx
-def info_update(doc,old_info, new_info):
-    '''此函数用于批量替换合同中需要替换的信息
-    doc:文件
-    old_info和new_info：原文字和需要替换的新文字
-    '''
-    #读取段落中的所有run，找到需替换的信息进行替换
-    for para in doc.paragraphs: #
-        for run in para.runs:
-            print(run.text)
-            run.text = run.text.replace(old_info, new_info) #替换信息
-    #读取表格中的所有单元格，找到需替换的信息进行替换
-    for table in doc.tables:
-        for row in table.rows:
-            for cell in row.cells:
-                cell.text = cell.text.replace(old_info, new_info) #替换信息
-
-import os #用于获取目标文件所在路径
-path="c:/Users/XUHAIJUN/Documents/SVW_Consulter_Strategie_2023年/人员简历/test/" # 文件夹路径
-new_path = "c:/Users/XUHAIJUN/Documents/SVW_Consulter_Strategie_2023年/人员简历/test_new/"
-files=[]
-for file in os.listdir(path):
-    if file.endswith(".docx"): #排除文件夹内的其它干扰文件，只获取word文件
-        files.append(path+file)
-
-for file in files:
-    doc = docx.Document(file)
-    info_update(doc,"信息技术", "软件科技")
-    doc.save(new_path+"{}".format(file.split("/")[-1]))
-    print("{}替换完成".format(file))
+#import docx
+#def info_update(doc,old_info, new_info):
+#    '''此函数用于批量替换合同中需要替换的信息
+#    doc:文件
+#    old_info和new_info：原文字和需要替换的新文字
+#    '''
+#    #读取段落中的所有run，找到需替换的信息进行替换
+#    for para in doc.paragraphs: #
+#        for run in para.runs:
+#            print(run.text)
+#            run.text = run.text.replace(old_info, new_info) #替换信息
+#    #读取表格中的所有单元格，找到需替换的信息进行替换
+#    for table in doc.tables:
+#        for row in table.rows:
+#            for cell in row.cells:
+#                cell.text = cell.text.replace(old_info, new_info) #替换信息
+#
+#import os #用于获取目标文件所在路径
+#path="c:/Users/XUHAIJUN/Documents/SVW_Consulter_Strategie_2023年/人员简历/test/" # 文件夹路径
+#new_path = "c:/Users/XUHAIJUN/Documents/SVW_Consulter_Strategie_2023年/人员简历/test_new/"
+#files=[]
+#for file in os.listdir(path):
+#    if file.endswith(".docx"): #排除文件夹内的其它干扰文件，只获取word文件
+#        files.append(path+file)
+#
+#for file in files:
+#    doc = docx.Document(file)
+#    info_update(doc,"信息技术", "软件科技")
+#    doc.save(new_path+"{}".format(file.split("/")[-1]))
+#    print("{}替换完成".format(file))
 # ***********************************************************************************************************
 # import os
 # import docx
@@ -74,33 +74,33 @@ for file in files:
 # if __name__ == '__main__':
 #     main()
 # ***********************************************************************************************************
-# import os
-# import comtypes.client
-# def get_path():
-#     # 指定路径
-#     path = 'c:/Users/XUHAIJUN/Documents/SVW_Consulter_Strategie_2023年/人员简历/WORD'
-#     # 获取所有文件名的列表
-#     filename_list = os.listdir(path)
-#     # 获取所有word文件名列表
-#     wordname_list = [filename for filename in filename_list \
-#                      if filename.endswith((".doc", ".docx"))]
-#     for wordname in wordname_list:
-#         # 分离word文件名称和后缀，转化为pdf名称
-#         pdfname = os.path.splitext(wordname)[0] + '.pdf'
-#         # 如果当前word文件对应的pdf文件存在，则不转化
-#         if pdfname in filename_list:
-#             continue
-#         # 拼接 路径和文件名
-#         wordpath = os.path.join(path, wordname)
-#         pdfpath = os.path.join(path, pdfname)
-#         #生成器
-#         yield wordpath,pdfpath
-# def convert_word_to_pdf():
-#     word = comtypes.client.CreateObject("Word.Application")
-#     word.Visible = 0
-#     for wordpath,pdfpath in get_path():
-#         newpdf = word.Documents.Open(wordpath)
-#         newpdf.SaveAs(pdfpath, FileFormat=17)
-#         newpdf.Close()
-# if __name__ == "__main__":
-#     convert_word_to_pdf()
+import os
+import comtypes.client
+def get_path():
+    # 指定路径
+    path = 'c:/Users/XUHAIJUN/SynologyDrive/English/friends/1/'
+    # 获取所有文件名的列表
+    filename_list = os.listdir(path)
+    # 获取所有word文件名列表
+    wordname_list = [filename for filename in filename_list \
+                     if filename.endswith((".doc", ".docx"))]
+    for wordname in wordname_list:
+        # 分离word文件名称和后缀，转化为pdf名称
+        pdfname = os.path.splitext(wordname)[0] + '.pdf'
+        # 如果当前word文件对应的pdf文件存在，则不转化
+        if pdfname in filename_list:
+            continue
+        # 拼接 路径和文件名
+        wordpath = os.path.join(path, wordname)
+        pdfpath = os.path.join(path, pdfname)
+        #生成器
+        yield wordpath,pdfpath
+def convert_word_to_pdf():
+    word = comtypes.client.CreateObject("Word.Application")
+    word.Visible = 0
+    for wordpath,pdfpath in get_path():
+        newpdf = word.Documents.Open(wordpath)
+        newpdf.SaveAs(pdfpath, FileFormat=17)
+        newpdf.Close()
+if __name__ == "__main__":
+    convert_word_to_pdf()
