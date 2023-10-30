@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+n#!/usr/bin/env python
 # -*- coding:utf-8 -*-
 # coding=utf-8
 from pdfminer.pdfparser import PDFParser, PDFDocument
@@ -24,7 +24,7 @@ while J:
             '———————————————————————————————————Welcome to the program！——————————————————————————————————————————————')
         time.sleep(1.5)
 
-        pdf_list = glob.glob('c:/Users/XUHAIJUN/Documents/SVW_Consulter_Strategie_2023年/人员简历/PDF/*.pdf') # 查看同文件夹下的pdf文件数
+        pdf_list = glob.glob('c:/Users/XUHAIJUN/SynologyDrive/DTAS/项目信息/上汽大众/EPG/1.pdf') # 查看同文件夹下的pdf文件数
         print(u'共发现%s个pdf文件' % len(pdf_list))
         print(u'正在处理............')
         print(pdf_list)
