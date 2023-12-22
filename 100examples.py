@@ -837,34 +837,34 @@
 #     b = int(input("Input 'b': "))
 #     print(lcm(a, b))
 
-# 简单的计算器
-class oper:
-    oper = ""
-    func = ""
-    def __int__(self,oper):
-        self.oper=oper.strip()
-    def opers(self, num1, num2):
-        swicher = {
-            '+' : 'plus',
-            '-' : 'subtract',
-            '*' : 'multiply',
-            '/' : 'divide',
-        }
-        func = swicher.get(self.oper,'default')
-        if func == 'default':
-            print('wrong operation')
-            exit()
-        num1 = float(num1)
-        num2 = float(num2)
-        func = getattr(self, func)
-        return func(num1, num2)
-
-    def plus(self,num1,num2):
-        return num1 + num2
-    def subtract(self,num1,num2):
-        return num1 - num2
-    def multiply(self,num1,num2):
-        return num1 * num2
-    def divide(self,num1,num2):
-        return num1 / num2
-import re
+# # 简单的计算器
+# class oper:
+#     oper = ""
+#     func = ""
+#     def __int__(self,oper):
+#         self.oper=oper.strip()
+#     def opers(self, num1, num2):
+#         swicher = {
+#             '+' : 'plus',
+#             '-' : 'subtract',
+#             '*' : 'multiply',
+#             '/' : 'divide',
+#         }
+#         func = swicher.get(self.oper,'default')
+#         if func == 'default':
+#             print('wrong operation')
+#             exit()
+#         num1 = float(num1)
+#         num2 = float(num2)
+#         func = getattr(self, func)
+#         return func(num1, num2)
+#
+#     def plus(self,num1,num2):
+#         return num1 + num2
+#     def subtract(self,num1,num2):
+#         return num1 - num2
+#     def multiply(self,num1,num2):
+#         return num1 * num2
+#     def divide(self,num1,num2):
+#         return num1 / num2
+# import re
