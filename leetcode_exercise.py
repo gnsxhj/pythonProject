@@ -53,6 +53,31 @@
 #
 #
 # print(Solution3().isAnagram('acts', 'cats'))
+# # 283. 移动零
+# class Solution1:
+#     def moveZeroes(self, nums):
+#         i = j = 0
+#         for i in range(len(nums)):
+#             # if nums[i] != 0: # 将所有的0移到末尾
+#             if nums[i] == 0:  # 将所有的0移到开头
+#                 nums[j], nums[i] = nums[i], nums[j]
+#                 j += 1
+#         print(nums)
+# class Solution2:
+#     def moveZeroes(self, nums):
+#         n = len(nums)
+#         p = 0
+#         while p < n:
+#             if nums[p] == 0:
+#                 q = p + 1
+#                 while q < n:
+#                     if nums[q] != 0:
+#                         nums[p], nums[q] = nums[q], nums[p]
+#                         break
+#                     q += 1
+#             p += 1
+#         print(nums)
+# print(Solution2().moveZeroes([0, 4, 0, 3, 1]))
 # # 28. 找出字符串中第一个匹配项的下标
 # class Solution:
 #     def strStr(self, haystack:str, needle:str) -> int:
