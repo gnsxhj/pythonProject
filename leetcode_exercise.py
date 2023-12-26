@@ -1,35 +1,35 @@
-# 66. 加一
-from typing import List
-
-
-class Solution1:
-    def plusOne(self, digits: List[int]) -> List[int]:
-        for i in range(len(digits) - 1, -1, -1):
-            if digits[i] != 9:
-                digits[i] += 1
-                return digits
-            else:
-                digits[i] = 0
-                if digits[0] == 0:
-                    digits.insert(0, 1)
-                    return digits
-
-
-class Solution2:  # 这个解法是错误的
-    def plusOne(self, digits: List[int]) -> List[int]:
-        n = len(digits)
-        while n > 0:
-            if digits[n - 1] == 9:
-                digits[n - 1] = 0
-                n -= 1
-            else:
-                digits[n - 1] = digits[n - 1] + 1
-                return digits
-        if n == 0:
-            return digits + [1]
-
-
-print(Solution2().plusOne([9, 9, 9, 9, 9]))
+# # 66. 加一
+# from typing import List
+#
+#
+# class Solution1:
+#     def plusOne(self, digits: List[int]) -> List[int]:
+#         for i in range(len(digits) - 1, -1, -1):
+#             if digits[i] != 9:
+#                 digits[i] += 1
+#                 return digits
+#             else:
+#                 digits[i] = 0
+#                 if digits[0] == 0:
+#                     digits.insert(0, 1)
+#                     return digits
+#
+#
+# class Solution2:  # 这个解法是错误的
+#     def plusOne(self, digits: List[int]) -> List[int]:
+#         n = len(digits)
+#         while n > 0:
+#             if digits[n - 1] == 9:
+#                 digits[n - 1] = 0
+#                 n -= 1
+#             else:
+#                 digits[n - 1] = digits[n - 1] + 1
+#                 return digits
+#         if n == 0:
+#             return digits + [1]
+#
+#
+# print(Solution2().plusOne([9, 9, 9, 9, 9]))
 # 459. 重复的子字符串
 # # 242. 有效的字母异位词
 # from collections import Counter, defaultdict
