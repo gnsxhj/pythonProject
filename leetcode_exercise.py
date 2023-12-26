@@ -1,15 +1,70 @@
-# 28. 找出字符串中第一个匹配项的下标
-class Solution:
-    def strStr(self, haystack:str, needle:str) -> int:
-        # return haystack.find(needle) # 用find内置函数
-
-        # 用切片法来做
-        for i in range(0, len(haystack)-len(needle)+1):
-            if haystack[i:i+len(needle)] == needle:
-                return i
-        return -1
-
-print(Solution().strStr("iloveyou", "love"))
+# 459. 重复的子字符串
+# # 242. 有效的字母异位词
+# from collections import Counter, defaultdict
+#
+#
+# class Solution1:  # 直接初始化计数器
+#     def isAnagram(self, s: str, t: str) -> bool:
+#         if len(s) != len(t):
+#             return False
+#         return Counter(s) == Counter(t)
+#
+#
+# class Solution2:  # 利用Counter计数器基数字符
+#     def isAnagram(self, s: str, t: str) -> bool:
+#         c = Counter()
+#         for i in s:
+#             c[i] += 1
+#         for j in t:
+#             c[j] -= 1
+#             if c[j] == 0:
+#                 del c[j]
+#         return True if len(c) == 0 else False
+#
+#
+# class Solution4:  # 利用Counter计数器基数字符
+#     def isAnagram(self, s: str, t: str) -> bool:
+#         if len(s) != len(t):
+#             return False
+#         dic = defaultdict(int)
+#         for i in s:
+#             dic[i] += 1
+#         for j in t:
+#             dic[j] -= 1
+#         for val in dic.values():
+#             if val != 0:
+#                 return False
+#         return True
+#
+#
+# class Solution3:  # 利用列表作为哈希表
+#     def isAnagram(self, s: str, t: str) -> bool:
+#         if len(s) != len(t):
+#             return False
+#         record = [0] * 26
+#         for i in s:
+#             record[ord(i) - ord('a')] += 1
+#         for j in t:
+#             record[ord(j) - ord('a')] -= 1
+#         for number in record:
+#             if number != 0:
+#                 return False
+#         return True
+#
+#
+# print(Solution3().isAnagram('acts', 'cats'))
+# # 28. 找出字符串中第一个匹配项的下标
+# class Solution:
+#     def strStr(self, haystack:str, needle:str) -> int:
+#         # return haystack.find(needle) # 用find内置函数
+#
+#         # 用切片法来做
+#         for i in range(0, len(haystack)-len(needle)+1):
+#             if haystack[i:i+len(needle)] == needle:
+#                 return i
+#         return -1
+#
+# print(Solution().strStr("iloveyou", "love"))
 # # 389.找不同
 # from collections import Counter
 # class Solution:
