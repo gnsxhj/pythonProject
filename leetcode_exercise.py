@@ -1,23 +1,39 @@
-# 1822. 数组元素积的符号
+# 896. 单调数列
 from typing import List
 
 
 class Solution:
-    def arraySign(self, nums: List[int]) -> int:
-        product = 1
-        for n in nums:
-            product *= n
-            if product == 0:
-                return 0
-                break
-        if product > 0:
-            return 1
-        elif product < 0:
-            return -1
+    def isMonotonic(self, nums: List[int]) -> bool:
+        n = sorted(nums, reverse=False)
+        m = sorted(nums, reverse=True)
+        if n != nums and m != nums:
+            return False
+        else:
+            return True
 
 
-print(Solution().arraySign([-1, 0, 1, -1, 2, 3, 4]))
+print(Solution().isMonotonic([1, 2, 2, 3]))
 
+# # 1822. 数组元素积的符号
+# from typing import List
+#
+#
+# class Solution:
+#     def arraySign(self, nums: List[int]) -> int:
+#         product = 1
+#         for n in nums:
+#             product *= n
+#             if product == 0:
+#                 return 0
+#                 break
+#         if product > 0:
+#             return 1
+#         elif product < 0:
+#             return -1
+#
+#
+# print(Solution().arraySign([-1, 0, 1, -1, 2, 3, 4]))
+#
 # # 66. 加一
 # from typing import List
 #
