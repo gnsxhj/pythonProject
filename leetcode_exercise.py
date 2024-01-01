@@ -1,19 +1,152 @@
-# 896. 单调数列
+# 1572. 矩阵对角线元素的和
 from typing import List
 
 
 class Solution:
-    def isMonotonic(self, nums: List[int]) -> bool:
-        n = sorted(nums, reverse=False)
-        m = sorted(nums, reverse=True)
-        if n != nums and m != nums:
-            return False
-        else:
-            return True
+    def diagonalSum(self, mat: List[List[int]]) -> int:
+        n, res = len(mat), 0
+        for i in range(n):
+            res += mat[i][i]
+            mat[i][i] = 0
+            res += mat[i][n - i - 1]
+            print(mat[i][n - i - 1])
+
+        return res
 
 
-print(Solution().isMonotonic([1, 2, 2, 3]))
-
+# class Solution:
+#     def diagonalSum(self, mat: List[List[int]]) -> int:
+#         ans = 0
+#         n = len(mat)
+#         for i, row in enumerate(mat):
+#             j = n - i - 1
+#             print(j, n, i)
+#             print(row[i], row[j])
+#
+#
+print(Solution().diagonalSum([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+# # 1041. 困于环中的机器人
+# class Solution:
+#     def isRobotBounded(self, instructions: str) -> bool:
+#         # north = 0, east = 1, south = 2, west = 3
+#         directions = [[0, 1], [1, 0], [0, -1], [-1, 0]]
+#         # Initial position is in the center
+#         x = y = 0
+#         # facing north
+#         idx = 0
+#
+#         for i in instructions:
+#             if i == "L":
+#                 idx = (idx + 3) % 4
+#             elif i == "R":
+#                 idx = (idx + 1) % 4
+#             else:
+#                 x += directions[idx][0]
+#                 y += directions[idx][1]
+#
+#         # after one cycle:
+#         # robot returns into initial position
+#         # or robot doesn't face north
+#         return (x == 0 and y == 0) or idx != 0
+#
+#
+# class Solution:
+#     def isRobotBounded(self, s: str) -> bool:
+#         x, y, d = 0, 0, 0
+#         dirs = [[0, 1], [-1, 0], [0, -1], [1, 0]]
+#         for c in s:
+#             if c == 'G':
+#                 x += dirs[d][0]
+#                 y += dirs[d][1]
+#                 print(x, y)
+#             elif c == 'L':
+#                 d = (d + 1) % 4
+#                 print(d)
+#             else:
+#                 d = ((d - 1) % 4 + 4) % 4
+#                 print(d)
+#         return (x == 0 and y == 0) or d != 0
+#
+#
+# print(Solution().isRobotBounded('LGLGLGLG'))
+# # 1275. 找出井字棋的获胜者
+# from typing import List
+#
+#
+# class Solution:
+#     def tictactoe(self, moves: List[List[int]]) -> str:
+#         length_moves = len(moves)
+#         if length_moves % 2 == 1:
+#             pos = 0
+#         else:
+#             pos = 1
+#         tic = []
+#         for i in range(pos, length_moves, 2):
+#             tic.append(moves[i])
+#         for n, ele in enumerate(tic):
+#             choice = tic[n]
+#             for subele in tic:
+#                 if subele != choice:
+#                     x = (subele[0] + choice[0]) / 2
+#                     y = (subele[1] + choice[1]) / 2
+#                     if [x, y] in tic:
+#                         if pos:
+#                             return "B"
+#                         else:
+#                             return "A"
+#         if length_moves == 9:
+#             return 'Draw'
+#         return 'Pending'
+#
+#
+# class Solution:
+#     def tictactoe(self, moves: List[List[int]]) -> str:
+#         playA = []
+#         playB = []
+#
+#         for step in range(0, len(moves), 2):
+#             playA.append(moves[step])
+#         for step in range(1, len(moves), 2):
+#             playB.append(moves[step])
+#         for n, ele in enumerate(playA):
+#             choice = playA[n]
+#             for subele in playA:
+#                 if subele != choice:
+#                     x = (subele[0] + choice[0]) / 2
+#                     y = (subele[1] + choice[1]) / 2
+#                     if [x, y] in playA:
+#                         return "A"
+#         for n, ele in enumerate(playB):
+#             choice = playB[n]
+#             for subele in playB:
+#                 if subele != choice:
+#                     x = (subele[0] + choice[0]) / 2
+#                     y = (subele[1] + choice[1]) / 2
+#                     if [x, y] in playB:
+#                         return "B"
+#         if len(moves) == 9:
+#             return "Draw"
+#         else:
+#             return "Pending"
+#
+#
+# print(Solution().tictactoe([[0, 0], [2, 0]]))
+# print(Solution().tictactoe([[0, 0], [2, 0], [1, 1], [2, 1], [2, 2]]))
+# print(Solution().tictactoe([[0, 0], [1, 1], [0, 1], [0, 2], [1, 0], [2, 0]]))
+# print(Solution().tictactoe([[0, 0], [1, 1], [2, 0], [1, 0], [1, 2], [2, 1], [0, 1], [0, 2], [2, 2]]))
+#
+# # 896. 单调数列
+# from typing import List
+# class Solution:
+#     def isMonotonic(self, nums: List[int]) -> bool:
+#         n = sorted(nums, reverse=False)
+#         m = sorted(nums, reverse=True)
+#         if n != nums and m != nums:
+#             return False
+#         else:
+#             return True
+# print(Solution().isMonotonic([1, 2, 2, 3]))
+#
 # # 1822. 数组元素积的符号
 # from typing import List
 #
