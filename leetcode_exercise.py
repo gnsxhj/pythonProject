@@ -1,19 +1,117 @@
-# 1572. 矩阵对角线元素的和
+# 14. 最长公共前缀
 from typing import List
 
 
 class Solution:
-    def diagonalSum(self, mat: List[List[int]]) -> int:
-        n, res = len(mat), 0
-        for i in range(n):
-            res += mat[i][i]
-            mat[i][i] = 0
-            res += mat[i][n - i - 1]
-            print(mat[i][n - i - 1])
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        res = []
+        s = list(map(set, zip(*strs)))
+        for i in s:
+            if len(list(i)) == 1:
+                res += list(i)
+            else:
+                break
+        return ''.join(res)
 
-        return res
 
+# class Solution:
+#     def longestCommonPrefix(self, strs: List[str]) -> str:
+#         s = ""
+#         for i in zip(*strs): # zip根据最短的集合按字母字典聚合
+#             if len(set(i)) == 1:
+#                 # s += i[0]
+#             else:
+#                 break
+#         return str(s)
 
+# class Solution:
+#     def longestCommonPrefix(self, strs: List[str]) -> str:
+#         if not strs: return ""
+#         str0 = min(strs)  # 从第一个字母开始，以权重比对出来最高重合的
+#         print(str0)
+#         str1 = max(strs)  # 最低重合的,就是最不重合的
+#         print(str1)
+#         for i in range(len(str0)):
+#             if str0[i] != str1[i]:
+#                 return str0[:i]
+#         return str0
+
+print(Solution().longestCommonPrefix(["abcd", "abcf", "abcfe", "abg"]))
+# # 9. 回文数
+# str = "abcdefg"
+# print(str[::-1])
+# # 21. 合并两个有序链表
+# class ListNode:
+#     def __init__(self, val):
+#         if isinstance(val, int):
+#             self.val = val
+#             self.next = None
+#
+#         elif isinstance(val, list):
+#             self.val = val[0]
+#             self.next = None
+#             cur = self
+#             for i in val[1:]:
+#                 cur.next = ListNode(i)
+#                 cur = cur.next
+#
+#     def gatherAttrs(self):
+#         return ", ".join("{}: {}".format(k, getattr(self, k)) for k in self.__dict__.keys())
+#
+#     def __str__(self):
+#         return self.__class__.__name__ + " {" + "{}".format(self.gatherAttrs()) + "}"
+#
+#
+# class Solution:
+#     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+#         """
+#         :type l1: ListNode
+#         :type l2: ListNode
+#         :rtype: ListNode
+#         """
+#         if isinstance(l1, list):
+#             l1 = ListNode(l1)
+#             l2 = ListNode(l2)
+#
+#         dum = mov = ListNode(0)
+#         while l1 and l2:
+#             if l1.val < l2.val:
+#                 mov.next = l1
+#                 l1 = l1.next
+#             else:
+#                 mov.next = l2
+#                 l2 = l2.next
+#             mov = mov.next
+#         mov.next = l1 if l1 else l2
+#         return dum.next
+#
+#
+# print(Solution().mergeTwoLists([1, 2, 3, 7], [2, 4, 5]))
+# # 1523. 在范围内统计奇数数目
+# class Solution:
+#     def countOdds(self, low: int, high: int) -> int:
+#         if high % 2:
+#             high += 1
+#         return (high - low + 1) // 2
+#
+#
+# print(Solution().countOdds(123, 987653))
+# # 1572. 矩阵对角线元素的和
+# from typing import List
+#
+#
+# class Solution:
+#     def diagonalSum(self, mat: List[List[int]]) -> int:
+#         n, res = len(mat), 0
+#         for i in range(n):
+#             res += mat[i][i]
+#             mat[i][i] = 0
+#             res += mat[i][n - i - 1]
+#             print(mat[i][n - i - 1])
+#
+#         return res
+#
+#
 # class Solution:
 #     def diagonalSum(self, mat: List[List[int]]) -> int:
 #         ans = 0
@@ -24,7 +122,7 @@ class Solution:
 #             print(row[i], row[j])
 #
 #
-print(Solution().diagonalSum([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+# print(Solution().diagonalSum([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
 # # 1041. 困于环中的机器人
 # class Solution:
 #     def isRobotBounded(self, instructions: str) -> bool:
