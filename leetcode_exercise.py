@@ -1,30 +1,30 @@
-# 1572. 矩阵对角线元素的和
-from typing import List
-
-
-class Solution:
-    def diagonalSum(self, mat: List[List[int]]) -> int:
-        n, res = len(mat), 0
-        for i in range(n):
-            res += mat[i][i]
-            mat[i][i] = 0
-            res += mat[i][n - i - 1]
-            print(mat[i][n - i - 1])
-
-        return res
+# # 1572. 矩阵对角线元素的和
+# from typing import List
 
 
 # class Solution:
 #     def diagonalSum(self, mat: List[List[int]]) -> int:
-#         ans = 0
-#         n = len(mat)
-#         for i, row in enumerate(mat):
-#             j = n - i - 1
-#             print(j, n, i)
-#             print(row[i], row[j])
-#
-#
-print(Solution().diagonalSum([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+#         n, res = len(mat), 0
+#         for i in range(n):
+#             res += mat[i][i]
+#             mat[i][i] = 0
+#             res += mat[i][n - i - 1]
+#             print(mat[i][n - i - 1])
+
+#         return res
+
+
+# # class Solution:
+# #     def diagonalSum(self, mat: List[List[int]]) -> int:
+# #         ans = 0
+# #         n = len(mat)
+# #         for i, row in enumerate(mat):
+# #             j = n - i - 1
+# #             print(j, n, i)
+# #             print(row[i], row[j])
+# #
+# #
+# print(Solution().diagonalSum([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
 # # 1041. 困于环中的机器人
 # class Solution:
 #     def isRobotBounded(self, instructions: str) -> bool:
