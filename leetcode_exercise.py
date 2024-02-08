@@ -1,52 +1,19 @@
-# 1. 两数之和
+# 1572. 矩阵对角线元素的和
 from typing import List
+
+
 class Solution:
-    def towSum(self, nums: List[int], target: int) -> List[int]:
-        map = {}
-        for i, n in enumerate(nums):
-            diff = target - n
-            print(diff)
-            if diff in map:
-                return[map[diff], i]
-            map[n] = i
-            print(map[n])
-        return None
+    def diagonalSum(self, mat: List[List[int]]) -> int:
+        n, res = len(mat), 0
+        for i in range(n):
+            res += mat[i][i]
+            mat[i][i] = 0
+            res += mat[i][n - i - 1]
+            print(mat[i][n - i - 1])
 
-print(Solution().towSum([1, 7, 3, 4], 8))
+        return res
 
-# # 1491. 去掉最低和最高求平均数
-# from typing import List
-# from numpy import mean
-# class Solution:
-#     def average(self, salary: List[int]) -> float:
-#         # salary = sorted(salary)
-#         # salary.pop()
-#         # salary.pop(0)
-#         # return sum(salary)/len(salary)
-#
-#         # new_salary = sorted(salary)
-#         # sum = 0
-#         # for i in range(1, len(new_salary)-1):
-#         #     sum += new_salary[i]
-#         # return sum / (len(new_salary)-2)
-#
-#         return mean(sorted(salary)[1:-1])
-# print(Solution().average([1000, 2000, 3000, 2000, 4000]))
-# # 1572. 矩阵对角线元素的和
-# from typing import List
-#
-#
-# class Solution:
-#     def diagonalSum(self, mat: List[List[int]]) -> int:
-#         n, res = len(mat), 0
-#         for i in range(n):
-#             res += mat[i][i]
-#             mat[i][i] = 0
-#             res += mat[i][n - i - 1]
-#
-#         return res
-#
-#
+
 # class Solution:
 #     def diagonalSum(self, mat: List[List[int]]) -> int:
 #         ans = 0
@@ -57,7 +24,7 @@ print(Solution().towSum([1, 7, 3, 4], 8))
 #             print(row[i], row[j])
 #
 #
-# print(Solution().diagonalSum([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+print(Solution().diagonalSum([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
 # # 1041. 困于环中的机器人
 # class Solution:
 #     def isRobotBounded(self, instructions: str) -> bool:
