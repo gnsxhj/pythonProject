@@ -1,3 +1,31 @@
+# 有效的括号
+class Solution:
+    def isValid(self, s: str) -> bool:
+        dic = {'{': '}', '[': ']', '(': ')', '?': '?'} #创建一个字典
+        stack = ['?']
+        for c in s:
+            print(c)
+            if c in dic:
+                stack.append(c)
+            elif dic[stack.pop()] != c:
+                return False
+        return len(stack) == 1
+print(Solution().isValid("({[]})[]"))
+# # 1. 两数之和
+# from typing import List
+# class Solution:
+#     def twoSum(self, nums: List[int], target: int) -> List[int]:
+#         map = {} #创建一个空字典
+#         for i, n in enumerate(nums):
+#             print(i, n)
+#             res = target - n
+#             print(res)
+#             if res in map: # 在字典的key里面寻找是否有剩余的value值相怕匹配
+#                 return[map[res], i]
+#             map[n] = i # 把每一个key和value对调存放到map字典里
+#             print(map)
+#         return None
+# print(Solution().twoSum([1, 3, 5, 7, 10], 10))
 # # 1572. 矩阵对角线元素的和
 # from typing import List
 
